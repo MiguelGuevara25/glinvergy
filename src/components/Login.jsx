@@ -4,7 +4,9 @@ const Login = () => {
   return (
     <div className="h-screen flex justify-center items-center bg-gradient-to-r from-[#FAD961] to-[#F76B1C]">
       <form className="flex flex-col bg-[#f76c1c56] rounded-lg p-10 text-white">
-        <h1 className="text-center uppercase font-bold text-2xl mb-3">Glinvergy</h1>
+        <h1 className="text-center uppercase font-bold text-2xl mb-3">
+          Glinvergy
+        </h1>
 
         <div className="flex items-center text-lg gap-3">
           <FaUser />

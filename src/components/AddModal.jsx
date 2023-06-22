@@ -1,5 +1,4 @@
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
+import { Typography, Box, Modal } from "@mui/material";
 import useGlinvergy from "../hooks/useGlinvergy";
 
 const AddModal = () => {
@@ -23,18 +22,26 @@ const AddModal = () => {
   return (
     <Modal open={addModal} onClose={handleModalAddClose}>
       <Box sx={style}>
-        <form className="flex flex-col gap-5">
-          <label
-            className="border"
-            value={seal}
-            onChange={(e) => setSeal(e.target.value)}
-          >
-            Seal:
-            <input type="text" />
-          </label>
+        <Typography
+          variant="h6"
+          component="h2"
+          className="text-center uppercase text-xl"
+        >
+          Agregar
+        </Typography>
 
-          <label>
-            Condition:
+        <form className="flex flex-col gap-5">
+          <div className="flex justify-between">
+            <label>Seal:</label>
+            <input
+              type="text"
+              value={seal}
+              onChange={(e) => setSeal(e.target.value)}
+            />
+          </div>
+
+          <div className="flex justify-between">
+            <label>Condition:</label>
             <select
               value={condition}
               onChange={(e) => setCondition(e.target.value)}
@@ -43,34 +50,34 @@ const AddModal = () => {
               <option>Open</option>
               <option>Close</option>
             </select>
-          </label>
+          </div>
 
-          <label>
-            State:
+          <div className="flex justify-between">
+            <label>State:</label>
             <select value={status} onChange={(e) => setStatus(e.target.value)}>
               <option hidden>Select State</option>
               <option>OK</option>
               <option>Manipulated</option>
             </select>
-          </label>
+          </div>
 
-          <label className="border">
-            Date of Entry:
+          <div className="flex justify-between">
+            <label>Date of Entry:</label>
             <input
               type="date"
               value={dateEntry}
               onChange={(e) => setDateEntry(e.target.value)}
             />
-          </label>
+          </div>
 
-          <label
-            className="border"
-            value={timeAdmision}
-            onChange={(e) => setTimeAdmision(e.target.value)}
-          >
-            Time of Admission:
-            <input type="time" />
-          </label>
+          <div className="flex justify-between">
+            <label>Time of Admission:</label>
+            <input
+              type="time"
+              value={timeAdmision}
+              onChange={(e) => setTimeAdmision(e.target.value)}
+            />
+          </div>
 
           <button className="border" type="submit" onClick={handleSubmitAdd}>
             Agregar

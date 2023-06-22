@@ -1,6 +1,5 @@
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
 import useGlinvergy from "../hooks/useGlinvergy";
+import { Typography, Box, Modal } from "@mui/material";
 
 const EditModal = () => {
   const {
@@ -20,23 +19,29 @@ const EditModal = () => {
   return (
     <Modal open={editModal} onClose={handleModalEditClose}>
       <Box sx={style}>
-        <form onSubmit={handleSubmitEdit} className="flex flex-col gap-5">
-          <label
-            className="border"
-            value={seal}
-            onChange={(e) => setSeal(e.target.value)}
-          >
-            Seal:
+        <Typography
+          variant="h6"
+          component="h2"
+          className="text-center uppercase text-xl"
+        >
+          Editar
+        </Typography>
+
+        <form onSubmit={handleSubmitEdit} className="flex flex-col gap-5 mt-5">
+          <div className="flex justify-between">
+            <label value={seal} onChange={(e) => setSeal(e.target.value)}>
+              Seal:
+            </label>
             <input
               type="text"
               defaultValue={editSelected.seal}
               name="seal"
               disabled
             />
-          </label>
+          </div>
 
-          <label>
-            Condition:
+          <div className="flex justify-between">
+            <label>Condition:</label>
             <select
               defaultValue={editSelected.condition}
               onChange={(e) => setCondition(e.target.value)}
@@ -46,10 +51,10 @@ const EditModal = () => {
               <option>Open</option>
               <option>Close</option>
             </select>
-          </label>
+          </div>
 
-          <label>
-            State:
+          <div className="flex justify-between">
+            <label>State:</label>
             <select
               defaultValue={editSelected.status}
               onChange={(e) => setStatus(e.target.value)}
@@ -59,27 +64,27 @@ const EditModal = () => {
               <option>OK</option>
               <option>Manipulated</option>
             </select>
-          </label>
+          </div>
 
-          <label className="border">
-            Date of Entry:
+          <div className="flex justify-between">
+            <label>Date of Entry:</label>
             <input
               type="date"
               defaultValue={editSelected.dateEntry}
               onChange={(e) => setDateEntry(e.target.value)}
               name="dateEntry"
             />
-          </label>
+          </div>
 
-          <label className="border">
-            Time of Admission:
+          <div className="flex justify-between">
+            <label>Time of Admission:</label>
             <input
               type="time"
               defaultValue={editSelected.timeAdmision}
               onChange={(e) => setTimeAdmision(e.target.value)}
               name="timeAdmision"
             />
-          </label>
+          </div>
 
           <button className="border" type="submit">
             Editar

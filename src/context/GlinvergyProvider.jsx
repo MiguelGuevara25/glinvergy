@@ -7,9 +7,18 @@ const GlinvergyProvider = ({ children }) => {
   const [status, setStatus] = useState("");
   const [dateEntry, setDateEntry] = useState("");
   const [timeAdmision, setTimeAdmision] = useState("");
-  const [allDates, setAllDates] = useState([]);
   const [producSelected, setProducSelected] = useState("");
   const [editSelected, setEditSelected] = useState({});
+
+  const [allDates, setAllDates] = useState([
+    {
+      seal: "201817413",
+      condition: "Open",
+      status: "OK",
+      dateEntry: "2021-10-10",
+      timeAdmision: "10:00",
+    },
+  ]);
 
   const objGlinvergy = { seal, condition, status, dateEntry, timeAdmision };
 
@@ -25,35 +34,46 @@ const GlinvergyProvider = ({ children }) => {
   };
 
   const [addModal, setAddModal] = useState(false);
-  const [editModal, seteditModal] = useState(false);
-  const [deleteModal, setdeleteModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
 
   const handleModalAddOpen = () => setAddModal(true);
   const handleModalAddClose = () => setAddModal(false);
+  const handleModalEditClose = () => setEditModal(false);
+  const handleModalDeleteClose = () => setDeleteModal(false);
 
   const handleModalEditOpen = (e) => {
     setEditSelected(e);
-    seteditModal(true);
+    setEditModal(true);
   };
-  const handleModalEditClose = () => seteditModal(false);
 
   const handleModalDeleteOpen = (e) => {
     setProducSelected(e);
-    setdeleteModal(true);
+    setDeleteModal(true);
   };
-
-  const handleModalDeleteClose = () => setdeleteModal(false);
 
   const handleSubmitAdd = (e) => {
     e.preventDefault();
+
+    if ([seal, condition, status, dateEntry, timeAdmision].includes(""))
+      return alert("Please fill all the fields");
+
     setAllDates([...allDates, objGlinvergy]);
+
+    setAddModal(false);
+
+    setSeal("");
+    setCondition("");
+    setStatus("");
+    setDateEntry("");
+    setTimeAdmision("");
   };
 
-  const deleteData = () => {
+  const handleDeleteData = () => {
     const newData = allDates.filter((e) => e.seal !== producSelected);
     setAllDates(newData);
 
-    setdeleteModal(false);
+    setDeleteModal(false);
   };
 
   const handleSubmitEdit = (e) => {
@@ -75,7 +95,7 @@ const GlinvergyProvider = ({ children }) => {
     found.dateEntry = obj.dateEntry;
     found.timeAdmision = obj.timeAdmision;
 
-    seteditModal(false);
+    setEditModal(false);
   };
 
   return (
@@ -93,7 +113,7 @@ const GlinvergyProvider = ({ children }) => {
         handleModalDeleteOpen,
         handleModalDeleteClose,
         handleSubmitEdit,
-        deleteData,
+        handleDeleteData,
         handleSubmitAdd,
         seal,
         setSeal,
