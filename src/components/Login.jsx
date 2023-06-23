@@ -39,7 +39,7 @@ const Login = () => {
   return (
     <div className="h-screen flex justify-center items-center bg-gradient-to-r from-[#FAD961] to-[#F76B1C]">
       <form
-        className="flex flex-col bg-[#f76c1c56] justify-around rounded-lg p-10 text-white h-80 shadow-xl"
+        className="flex flex-col bg-[#f76c1c56] justify-around rounded-lg p-10 text-white h-80 shadow-xl relative"
         onSubmit={handleLogin}
       >
         <h1 className="text-center uppercase font-bold text-2xl mb-3">
@@ -56,7 +56,7 @@ const Login = () => {
           />
         </div>
 
-        <div className="flex items-center text-lg gap-3 realtive">
+        <div className="flex items-center text-lg gap-3">
           <FaLock />
           <input
             type={seePassword ? "text" : "password"}
@@ -66,13 +66,10 @@ const Login = () => {
           />
 
           {seePassword ? (
-            <FaEye
-              className="absolute right-[50px] md:right-[250px] lg:right-[380px]cursor-pointer"
-              onClick={showPassword}
-            />
+            <FaEye className="absolute right-10 cursor-pointer" onClick={showPassword} />
           ) : (
             <FaEyeSlash
-              className="absolute right-[80px] md:right-[250px] lg:right-[380px] cursor-pointer"
+              className="absolute right-10 cursor-pointer"
               onClick={showPassword}
             />
           )}
