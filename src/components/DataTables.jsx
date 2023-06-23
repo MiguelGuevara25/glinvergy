@@ -4,7 +4,8 @@ import { IoReaderOutline } from "react-icons/io5";
 import useGlinvergy from "../hooks/useGlinvergy";
 
 const DataTables = ({ e }) => {
-  const { handleModalEditOpen, handleModalDeleteOpen } = useGlinvergy();
+  const { handleModalEditOpen, handleModalDeleteOpen, handleModalViewOpen } =
+    useGlinvergy();
 
   return (
     <TableRow>
@@ -42,7 +43,10 @@ const DataTables = ({ e }) => {
 
       <TableCell sx={{ textAlign: "center" }}>
         <div className="flex gap-3 text-4xl justify-center">
-          <IoReaderOutline className="cursor-pointer" />
+          <IoReaderOutline
+            className="cursor-pointer"
+            onClick={() => handleModalViewOpen(e)}
+          />
           <MdEdit
             className="cursor-pointer"
             onClick={() => handleModalEditOpen(e)}

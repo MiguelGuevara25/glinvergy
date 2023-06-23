@@ -13,6 +13,7 @@ import EditModal from "./EditModal";
 import AddModal from "./AddModal";
 import DeleteModal from "./DeleteModal";
 import useGlinvergy from "../hooks/useGlinvergy";
+import ViewModal from "./ViewModal";
 
 const Main = () => {
   const { handleModalAddOpen, allDates, handleLogout } = useGlinvergy();
@@ -86,6 +87,7 @@ const Main = () => {
       <AddModal />
       <EditModal />
       <DeleteModal />
+      <ViewModal />
     </div>
   );
 };

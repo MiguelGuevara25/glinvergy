@@ -9,10 +9,12 @@ const GlinvergyProvider = ({ children }) => {
   const [timeAdmision, setTimeAdmision] = useState("");
   const [producSelected, setProducSelected] = useState("");
   const [editSelected, setEditSelected] = useState({});
+  const [viewSelected, setViewSelected] = useState({});
   const [login, setLogin] = useState(false);
   const [addModal, setAddModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [viewModal, setViewModal] = useState(false);
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [veriUser, setVeriUser] = useState("");
@@ -50,6 +52,11 @@ const GlinvergyProvider = ({ children }) => {
     p: 4,
   };
 
+  const handleModalViewOpen = (e) => {
+    setViewSelected(e);
+    setViewModal(true);
+  };
+  const handleModalViewClose = () => setViewModal(false);
   const handleModalAddOpen = () => setAddModal(true);
   const handleModalAddClose = () => setAddModal(false);
   const handleModalEditClose = () => setEditModal(false);
@@ -142,6 +149,8 @@ const GlinvergyProvider = ({ children }) => {
         handleModalEditClose,
         handleModalDeleteOpen,
         handleModalDeleteClose,
+        handleModalViewOpen,
+        handleModalViewClose,
         handleSubmitEdit,
         handleDeleteData,
         handleSubmitAdd,
@@ -169,6 +178,8 @@ const GlinvergyProvider = ({ children }) => {
         veriPassword,
         setVeriPassword,
         handleLogout,
+        viewModal,
+        viewSelected,
       }}
     >
       {children}
