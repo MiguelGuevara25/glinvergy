@@ -9,6 +9,7 @@ const GlinvergyProvider = ({ children }) => {
   const [timeAdmision, setTimeAdmision] = useState("");
   const [producSelected, setProducSelected] = useState("");
   const [editSelected, setEditSelected] = useState({});
+  const [login, setLogin] = useState(false);
 
   const [allDates, setAllDates] = useState([
     {
@@ -128,6 +129,8 @@ const GlinvergyProvider = ({ children }) => {
         setTimeAdmision,
         allDates,
         editSelected,
+        login,
+        setLogin,
       }}
     >
       {children}

@@ -1,10 +1,10 @@
-import Login from "./components/Login";
+import AppCrud from "./components/AppCrud";
 import { GlinvergyProvider } from "./context/GlinvergyProvider";
 
 function App() {
   return (
     <GlinvergyProvider>
-      <Login />
+      <AppCrud />
     </GlinvergyProvider>
   );
 }
