@@ -69,13 +69,13 @@ const Main = () => {
         </TableContainer>
       </div>
 
-      <div className="lg:hidden flex justify-center gap-5">
+      <div className="lg:hidden grid grid-cols-2 mx-2 justify-center gap-5">
         {allDates.map((e, index) => (
           <DataCards e={e} key={index} />
         ))}
       </div>
 
-      <div className="flex justify-end w-[1000px] mx-auto">
+      <div className="flex justify-end w-96 lg:mt-0 mt-5 lg:w-[1000px] mx-auto">
         <button
           className="bg-white shadow-xl text-[#F76B1C] uppercase py-2 px-3 rounded-lg font-bold"
           onClick={handleModalAddOpen}
@@ -84,7 +84,7 @@ const Main = () => {
         </button>
       </div>
 
-      <div className="flex justify-center w-[1000px] my-8 mx-auto">
+      <div className="flex justify-center lg:w-[1000px] my-8 mx-auto">
         <button
           className="bg-[#F76B1C] shadow-xl text-white uppercase py-2 px-3 rounded-lg font-bold"
           onClick={handleLogout}
