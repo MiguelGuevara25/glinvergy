@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { FaLock, FaUser } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { FaEye, FaEyeSlash, FaLock, FaUser } from "react-icons/fa";
 import useGlinvergy from "../hooks/useGlinvergy";
 
 const Login = () => {
@@ -12,6 +12,8 @@ const Login = () => {
     setVeriPassword,
     handleLogin,
   } = useGlinvergy();
+
+  const [seePassword, setSeePassword] = useState(false);
 
   useEffect(() => {
     const loginCrud = () => {
@@ -29,6 +31,10 @@ const Login = () => {
 
     loginCrud();
   }, [setPassword, setUser]);
+
+  const showPassword = () => {
+    setSeePassword(!seePassword);
+  };
 
   return (
     <div className="h-screen flex justify-center items-center bg-gradient-to-r from-[#FAD961] to-[#F76B1C]">
@@ -50,14 +56,26 @@ const Login = () => {
           />
         </div>
 
-        <div className="flex items-center text-lg gap-3">
+        <div className="flex items-center text-lg gap-3 realtive">
           <FaLock />
           <input
-            type="text"
+            type={seePassword ? "text" : "password"}
             className="bg-transparent border-b-4 border-white"
             value={veriPassword}
             onChange={(e) => setVeriPassword(e.target.value)}
           />
+
+          {seePassword ? (
+            <FaEye
+              className="absolute left-[845px] cursor-pointer"
+              onClick={showPassword}
+            />
+          ) : (
+            <FaEyeSlash
+              className="absolute left-[845px] cursor-pointer"
+              onClick={showPassword}
+            />
+          )}
         </div>
 
         <input

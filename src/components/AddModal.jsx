@@ -41,7 +41,7 @@ const AddModal = () => {
             <label>Seal:</label>
             <input
               className="border-2 border-gray-400 rounded-md p-1"
-              type="text"
+              type="number"
               value={seal}
               onChange={(e) => setSeal(e.target.value)}
             />
