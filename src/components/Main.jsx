@@ -32,7 +32,7 @@ const Main = () => {
       <TableContainer
         component={Paper}
         className="my-5"
-        sx={{ width: 1000, margin: "50px auto", borderRadius: "15px" }}
+        sx={{ width: 1000, margin: "20px auto", borderRadius: "15px" }}
       >
         <Table>
           <TableHead sx={style}>
@@ -66,7 +66,7 @@ const Main = () => {
         </Table>
       </TableContainer>
 
-      <div className="flex justify-end mr-32">
+      <div className="flex justify-end w-[1000px] mx-auto">
         <button
           className="bg-white shadow-xl text-[#F76B1C] uppercase py-2 px-3 rounded-lg font-bold"
           onClick={handleModalAddOpen}

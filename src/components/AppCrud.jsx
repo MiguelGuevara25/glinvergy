@@ -7,7 +7,7 @@ const AppCrud = () => {
 
   return (
     <>
-      <Login />
+      {!login && <Login />}
       {login && <Main />}
     </>
   );
