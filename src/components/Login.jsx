@@ -67,12 +67,12 @@ const Login = () => {
 
           {seePassword ? (
             <FaEye
-              className="absolute md:left-[845px] left-[320px] cursor-pointer"
+              className="absolute right-[50px] md:right-[250px] lg:right-[380px]cursor-pointer"
               onClick={showPassword}
             />
           ) : (
             <FaEyeSlash
-              className="absolute md:left-[845px] left-[320px] cursor-pointer"
+              className="absolute right-[80px] md:right-[250px] lg:right-[380px] cursor-pointer"
               onClick={showPassword}
             />
           )}
