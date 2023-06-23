@@ -60,11 +60,21 @@ const Main = () => {
               </TableRow>
             </TableHead>
 
-            <TableBody>
-              {allDates.map((e, index) => (
-                <DataTables e={e} key={index} />
-              ))}
-            </TableBody>
+            {allDates.length > 0 ? (
+              <TableBody>
+                {allDates.map((e, index) => (
+                  <DataTables e={e} key={index} />
+                ))}
+              </TableBody>
+            ) : (
+              <TableBody>
+                <td colSpan="6">
+                  <h2 className="text-4xl py-5 w-full text-center">
+                    No data available
+                  </h2>
+                </td>
+              </TableBody>
+            )}
           </Table>
         </TableContainer>
       </div>
