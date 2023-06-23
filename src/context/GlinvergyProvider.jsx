@@ -127,6 +127,8 @@ const GlinvergyProvider = ({ children }) => {
 
     if (veriUser === user && veriPassword === password) {
       setLogin(true);
+    } else {
+      alert("Incorrect user or password");
     }
   };
 
