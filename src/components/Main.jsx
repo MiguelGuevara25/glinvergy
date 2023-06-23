@@ -15,17 +15,16 @@ import DeleteModal from "./DeleteModal";
 import useGlinvergy from "../hooks/useGlinvergy";
 
 const Main = () => {
-  const { handleModalAddOpen, allDates } = useGlinvergy();
+  const { handleModalAddOpen, allDates, handleLogout } = useGlinvergy();
 
   const style = {
     boxShadow: 5,
-
     p: 4,
   };
 
   return (
     <div className="container mx-auto">
-      <h1 className="text-center text-6xl uppercase mt-16 font-bold text-white">
+      <h1 className="text-center text-6xl uppercase my-16 font-bold text-white">
         Glinvergy
       </h1>
 
@@ -72,6 +71,15 @@ const Main = () => {
           onClick={handleModalAddOpen}
         >
           Add Data
+        </button>
+      </div>
+
+      <div className="flex justify-center w-[1000px] my-8 mx-auto">
+        <button
+          className="bg-[#F76B1C] shadow-xl text-white uppercase py-2 px-3 rounded-lg font-bold"
+          onClick={handleLogout}
+        >
+          Log Out
         </button>
       </div>
 

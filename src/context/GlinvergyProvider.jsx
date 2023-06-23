@@ -10,6 +10,13 @@ const GlinvergyProvider = ({ children }) => {
   const [producSelected, setProducSelected] = useState("");
   const [editSelected, setEditSelected] = useState({});
   const [login, setLogin] = useState(false);
+  const [addModal, setAddModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+  const [veriUser, setVeriUser] = useState("");
+  const [veriPassword, setVeriPassword] = useState("");
 
   const [allDates, setAllDates] = useState([
     {
@@ -18,6 +25,14 @@ const GlinvergyProvider = ({ children }) => {
       status: "OK",
       dateEntry: "2021-10-10",
       timeAdmision: "10:00",
+    },
+
+    {
+      seal: "25022017",
+      condition: "Close",
+      status: "Manipulated",
+      dateEntry: "2023-11-27",
+      timeAdmision: "12:00",
     },
   ]);
 
@@ -34,10 +49,6 @@ const GlinvergyProvider = ({ children }) => {
     borderRadius: "15px",
     p: 4,
   };
-
-  const [addModal, setAddModal] = useState(false);
-  const [editModal, setEditModal] = useState(false);
-  const [deleteModal, setDeleteModal] = useState(false);
 
   const handleModalAddOpen = () => setAddModal(true);
   const handleModalAddClose = () => setAddModal(false);
@@ -100,6 +111,23 @@ const GlinvergyProvider = ({ children }) => {
     setEditModal(false);
   };
 
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    if ([veriUser, veriPassword].includes("")) {
+      return alert("Please fill all the fields");
+    }
+
+    if (veriUser === user && veriPassword === password) {
+      setLogin(true);
+    }
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    setLogin(false);
+  };
+
   return (
     <GlinvergyContext.Provider
       value={{
@@ -117,6 +145,7 @@ const GlinvergyProvider = ({ children }) => {
         handleSubmitEdit,
         handleDeleteData,
         handleSubmitAdd,
+        handleLogin,
         seal,
         setSeal,
         condition,
@@ -131,6 +160,15 @@ const GlinvergyProvider = ({ children }) => {
         editSelected,
         login,
         setLogin,
+        user,
+        setUser,
+        password,
+        setPassword,
+        veriUser,
+        setVeriUser,
+        veriPassword,
+        setVeriPassword,
+        handleLogout,
       }}
     >
       {children}

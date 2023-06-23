@@ -1,44 +1,34 @@
 import { useEffect } from "react";
-import { useState } from "react";
 import { FaLock, FaUser } from "react-icons/fa";
 import useGlinvergy from "../hooks/useGlinvergy";
 
 const Login = () => {
-  const [user, setUser] = useState("");
-  const [password, setPassword] = useState("");
-  const [veriUser, setVeriUser] = useState("");
-  const [veriPassword, setVeriPassword] = useState("");
-
-  const { setLogin } = useGlinvergy();
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    if ([veriUser, veriPassword].includes("")) {
-      return alert("Please fill all the fields"); 
-    }
-
-    if (veriUser === user && veriPassword === password) {
-      setLogin(true);
-    }
-  };
-
-  const loginCrud = () => {
-    const administration = [
-      {
-        id: 1,
-        user: "Alfredo",
-        password: "glinvergy",
-      },
-    ];
-
-    setUser(administration[0].user);
-    setPassword(administration[0].password);
-  };
+  const {
+    setUser,
+    setPassword,
+    veriUser,
+    setVeriUser,
+    veriPassword,
+    setVeriPassword,
+    handleLogin,
+  } = useGlinvergy();
 
   useEffect(() => {
+    const loginCrud = () => {
+      const administration = [
+        {
+          id: 1,
+          user: "Alfredo",
+          password: "glinvergy",
+        },
+      ];
+
+      setUser(administration[0].user);
+      setPassword(administration[0].password);
+    };
+
     loginCrud();
-  }, []);
+  }, [setPassword, setUser]);
 
   return (
     <div className="h-screen flex justify-center items-center bg-gradient-to-r from-[#FAD961] to-[#F76B1C]">
