@@ -78,10 +78,12 @@ const GlinvergyProvider = ({ children }) => {
     if ([seal, condition, status, dateEntry, timeAdmision].includes(""))
       return alert("Please fill all the fields");
 
+    const newDate = allDates.find((e) => e.seal === objGlinvergy.seal);
+    if (newDate) return alert("This seal already exists");
+
     setAllDates([...allDates, objGlinvergy]);
 
     setAddModal(false);
-
     setSeal("");
     setCondition("");
     setStatus("");
@@ -92,7 +94,6 @@ const GlinvergyProvider = ({ children }) => {
   const handleDeleteData = () => {
     const newData = allDates.filter((e) => e.seal !== producSelected);
     setAllDates(newData);
-
     setDeleteModal(false);
   };
 

@@ -20,7 +20,7 @@ const Login = () => {
       const administration = [
         {
           id: 1,
-          user: "Alfredo",
+          user: "Miguel",
           password: "glinvergy",
         },
       ];
