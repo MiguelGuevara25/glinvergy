@@ -17,32 +17,44 @@ import useGlinvergy from "../hooks/useGlinvergy";
 const Main = () => {
   const { handleModalAddOpen, allDates } = useGlinvergy();
 
+  const style = {
+    boxShadow: 5,
+
+    p: 4,
+  };
+
   return (
     <div className="container mx-auto">
-      <h1 className="text-center text-6xl uppercase my-10">Glinvergy</h1>
-      <div className="flex justify-end">
-        <button
-          className="bg-blue-500 text-white uppercase py-2 px-3 rounded-lg font-bold"
-          onClick={handleModalAddOpen}
-        >
-          Add Data
-        </button>
+      <h1 className="text-center text-6xl uppercase mt-16 font-bold text-white">
+        Glinvergy
+      </h1>
 
-        <AddModal />
-        <EditModal />
-        <DeleteModal />
-      </div>
-
-      <TableContainer component={Paper} className="my-5">
+      <TableContainer
+        component={Paper}
+        className="my-5"
+        sx={{ width: 1000, margin: "50px auto", borderRadius: "15px" }}
+      >
         <Table>
-          <TableHead>
+          <TableHead sx={style}>
             <TableRow>
-              <TableCell>Seal N</TableCell>
-              <TableCell>Condition</TableCell>
-              <TableCell>Status</TableCell>
-              <TableCell>Date Entry</TableCell>
-              <TableCell>Time Admision</TableCell>
-              <TableCell>Action</TableCell>
+              <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
+                Seal N
+              </TableCell>
+              <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
+                Condition
+              </TableCell>
+              <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
+                Status
+              </TableCell>
+              <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
+                Date Entry
+              </TableCell>
+              <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
+                Time Admision
+              </TableCell>
+              <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
+                Action
+              </TableCell>
             </TableRow>
           </TableHead>
 
@@ -53,6 +65,19 @@ const Main = () => {
           </TableBody>
         </Table>
       </TableContainer>
+
+      <div className="flex justify-end mr-32">
+        <button
+          className="bg-white shadow-xl text-[#F76B1C] uppercase py-2 px-3 rounded-lg font-bold"
+          onClick={handleModalAddOpen}
+        >
+          Add Data
+        </button>
+      </div>
+
+      <AddModal />
+      <EditModal />
+      <DeleteModal />
     </div>
   );
 };

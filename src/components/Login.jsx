@@ -3,7 +3,7 @@ import { FaLock, FaUser } from "react-icons/fa";
 const Login = () => {
   return (
     <div className="h-screen flex justify-center items-center bg-gradient-to-r from-[#FAD961] to-[#F76B1C]">
-      <form className="flex flex-col bg-[#f76c1c56] rounded-lg p-10 text-white">
+      <form className="flex flex-col bg-[#f76c1c56] justify-around rounded-lg p-10 text-white h-80 shadow-xl">
         <h1 className="text-center uppercase font-bold text-2xl mb-3">
           Glinvergy
         </h1>

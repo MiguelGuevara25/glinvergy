@@ -8,13 +8,13 @@ const DataTables = ({ e }) => {
 
   return (
     <TableRow>
-      <TableCell>{e.seal}</TableCell>
-      <TableCell>{e.condition}</TableCell>
-      <TableCell>{e.status}</TableCell>
-      <TableCell>{e.dateEntry}</TableCell>
-      <TableCell>{e.timeAdmision}</TableCell>
-      <TableCell>
-        <div className="flex gap-3 text-4xl w-max">
+      <TableCell sx={{ textAlign: "center" }}>{e.seal}</TableCell>
+      <TableCell sx={{ textAlign: "center" }}>{e.condition}</TableCell>
+      <TableCell sx={{ textAlign: "center" }}>{e.status}</TableCell>
+      <TableCell sx={{ textAlign: "center" }}>{e.dateEntry}</TableCell>
+      <TableCell sx={{ textAlign: "center" }}>{e.timeAdmision}</TableCell>
+      <TableCell sx={{ textAlign: "center" }}>
+        <div className="flex gap-3 text-4xl justify-center">
           <IoReaderOutline className="cursor-pointer" />
           <MdEdit
             className="cursor-pointer"

@@ -22,9 +22,15 @@ const EditModal = () => {
         <Typography
           variant="h6"
           component="h2"
-          className="text-center uppercase text-xl"
+          className="text-2xl"
+          sx={{
+            fontWeight: 900,
+            marginBottom: "20px",
+            textAlign: "center",
+            textTransform: "uppercase",
+          }}
         >
-          Editar
+          Edit Data
         </Typography>
 
         <form onSubmit={handleSubmitEdit} className="flex flex-col gap-5 mt-5">
@@ -36,6 +42,7 @@ const EditModal = () => {
               type="text"
               defaultValue={editSelected.seal}
               name="seal"
+              className="border-2 border-gray-400 rounded-md p-1"
               disabled
             />
           </div>
@@ -45,6 +52,7 @@ const EditModal = () => {
             <select
               defaultValue={editSelected.condition}
               onChange={(e) => setCondition(e.target.value)}
+              className="border-2 border-gray-400 rounded-md p-1"
               name="condition"
             >
               <option hidden>Select Condition</option>
@@ -58,6 +66,7 @@ const EditModal = () => {
             <select
               defaultValue={editSelected.status}
               onChange={(e) => setStatus(e.target.value)}
+              className="border-2 border-gray-400 rounded-md p-1"
               name="status"
             >
               <option hidden>Select State</option>
@@ -72,6 +81,7 @@ const EditModal = () => {
               type="date"
               defaultValue={editSelected.dateEntry}
               onChange={(e) => setDateEntry(e.target.value)}
+              className="border-2 border-gray-400 rounded-md p-1"
               name="dateEntry"
             />
           </div>
@@ -82,12 +92,16 @@ const EditModal = () => {
               type="time"
               defaultValue={editSelected.timeAdmision}
               onChange={(e) => setTimeAdmision(e.target.value)}
+              className="border-2 border-gray-400 rounded-md p-1"
               name="timeAdmision"
             />
           </div>
 
-          <button className="border" type="submit">
-            Editar
+          <button
+            type="submit"
+            className="bg-[#F76B1C] rounded-md py-2 text-white font-bold"
+          >
+            Edit
           </button>
         </form>
       </Box>

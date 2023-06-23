@@ -25,15 +25,22 @@ const AddModal = () => {
         <Typography
           variant="h6"
           component="h2"
-          className="text-center uppercase text-xl"
+          className="text-2xl"
+          sx={{
+            fontWeight: 900,
+            marginBottom: "20px",
+            textAlign: "center",
+            textTransform: "uppercase",
+          }}
         >
-          Agregar
+          Add Data
         </Typography>
 
         <form className="flex flex-col gap-5">
           <div className="flex justify-between">
             <label>Seal:</label>
             <input
+              className="border-2 border-gray-400 rounded-md p-1"
               type="text"
               value={seal}
               onChange={(e) => setSeal(e.target.value)}
@@ -45,6 +52,7 @@ const AddModal = () => {
             <select
               value={condition}
               onChange={(e) => setCondition(e.target.value)}
+              className="border-2 border-gray-400 rounded-md p-1"
             >
               <option hidden>Select Condition</option>
               <option>Open</option>
@@ -54,7 +62,11 @@ const AddModal = () => {
 
           <div className="flex justify-between">
             <label>State:</label>
-            <select value={status} onChange={(e) => setStatus(e.target.value)}>
+            <select
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+              className="border-2 border-gray-400 rounded-md p-1"
+            >
               <option hidden>Select State</option>
               <option>OK</option>
               <option>Manipulated</option>
@@ -67,6 +79,7 @@ const AddModal = () => {
               type="date"
               value={dateEntry}
               onChange={(e) => setDateEntry(e.target.value)}
+              className="border-2 border-gray-400 rounded-md p-1"
             />
           </div>
 
@@ -76,11 +89,16 @@ const AddModal = () => {
               type="time"
               value={timeAdmision}
               onChange={(e) => setTimeAdmision(e.target.value)}
+              className="border-2 border-gray-400 rounded-md p-1"
             />
           </div>
 
-          <button className="border" type="submit" onClick={handleSubmitAdd}>
-            Agregar
+          <button
+            className="bg-[#F76B1C] rounded-md py-2 text-white font-bold"
+            type="submit"
+            onClick={handleSubmitAdd}
+          >
+            Add
           </button>
         </form>
       </Box>

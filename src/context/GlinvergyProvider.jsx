@@ -30,6 +30,7 @@ const GlinvergyProvider = ({ children }) => {
     width: 400,
     bgcolor: "background.paper",
     boxShadow: 5,
+    borderRadius: "15px",
     p: 4,
   };
 
