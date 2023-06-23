@@ -14,6 +14,7 @@ import AddModal from "./AddModal";
 import DeleteModal from "./DeleteModal";
 import useGlinvergy from "../hooks/useGlinvergy";
 import ViewModal from "./ViewModal";
+import DataCards from "./DataCards";
 
 const Main = () => {
   const { handleModalAddOpen, allDates, handleLogout } = useGlinvergy();
@@ -29,42 +30,50 @@ const Main = () => {
         Glinvergy
       </h1>
 
-      <TableContainer
-        component={Paper}
-        className="my-5"
-        sx={{ width: 1000, margin: "20px auto", borderRadius: "15px" }}
-      >
-        <Table>
-          <TableHead sx={style}>
-            <TableRow>
-              <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
-                Seal N
-              </TableCell>
-              <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
-                Condition
-              </TableCell>
-              <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
-                Status
-              </TableCell>
-              <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
-                Date Entry
-              </TableCell>
-              <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
-                Time Admision
-              </TableCell>
-              <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
-                Action
-              </TableCell>
-            </TableRow>
-          </TableHead>
+      <div className="lg:block hidden">
+        <TableContainer
+          component={Paper}
+          className="my-5"
+          sx={{ width: 1000, margin: "20px auto", borderRadius: "15px" }}
+        >
+          <Table>
+            <TableHead sx={style}>
+              <TableRow>
+                <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
+                  Seal N
+                </TableCell>
+                <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
+                  Condition
+                </TableCell>
+                <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
+                  Status
+                </TableCell>
+                <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
+                  Date Entry
+                </TableCell>
+                <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
+                  Time Admision
+                </TableCell>
+                <TableCell sx={{ fontWeight: 900, textAlign: "center" }}>
+                  Action
+                </TableCell>
+              </TableRow>
+            </TableHead>
 
-          <TableBody>
-            {allDates.map((e, index) => (
-              <DataTables e={e} key={index} />
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            <TableBody>
+              {allDates.map((e, index) => (
+                <DataTables e={e} key={index} />
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
+
+      <div className="lg:hidden flex justify-center gap-5">
+        {allDates.map((e, index) => (
+          <DataCards e={e} key={index} />
+        ))}
+      </div>
 
       <div className="flex justify-end w-[1000px] mx-auto">
         <button
