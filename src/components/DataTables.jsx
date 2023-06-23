@@ -25,7 +25,7 @@ const DataTables = ({ e }) => {
       <TableCell sx={{ textAlign: "center" }}>
         <span
           className={`${
-            e.status === "OK" ? "bg-green-500 px-[55px]" : "bg-red-500 px-5"
+            e.status === "OK" ? "bg-green-500 px-[50px]" : "bg-red-500 px-5"
           } py-2 rounded-lg text-white`}
         >
           {e.status}
