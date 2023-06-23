@@ -18,7 +18,7 @@ const DataCards = ({ e }) => {
           gap: "20px",
         }}
       >
-        <Typography variant="h4">
+        <Typography variant="h5">
           <span>{e.seal}</span>
         </Typography>
 

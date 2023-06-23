@@ -39,7 +39,8 @@ const EditModal = () => {
               Seal:
             </label>
             <input
-              type="text"
+              type="number"
+              min={1}
               defaultValue={editSelected.seal}
               name="seal"
               className="border-2 border-gray-400 rounded-md p-1"
