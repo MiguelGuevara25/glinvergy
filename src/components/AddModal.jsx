@@ -1,6 +1,7 @@
 import { Typography, Box, Modal } from "@mui/material";
 import useGlinvergy from "../hooks/useGlinvergy";
 
+
 const AddModal = () => {
   const {
     addModal,
@@ -21,6 +22,7 @@ const AddModal = () => {
 
   return (
     <Modal open={addModal} onClose={handleModalAddClose}>
+      
       <Box sx={style}>
         <Typography
           variant="h6"

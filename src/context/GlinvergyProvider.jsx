@@ -1,4 +1,5 @@
 import { useState, createContext } from "react";
+import { toast } from "sonner";
 const GlinvergyContext = createContext();
 
 const GlinvergyProvider = ({ children }) => {
@@ -52,15 +53,16 @@ const GlinvergyProvider = ({ children }) => {
     p: 4,
   };
 
-  const handleModalViewOpen = (e) => {
-    setViewSelected(e);
-    setViewModal(true);
-  };
   const handleModalViewClose = () => setViewModal(false);
   const handleModalAddOpen = () => setAddModal(true);
   const handleModalAddClose = () => setAddModal(false);
   const handleModalEditClose = () => setEditModal(false);
   const handleModalDeleteClose = () => setDeleteModal(false);
+
+  const handleModalViewOpen = (e) => {
+    setViewSelected(e);
+    setViewModal(true);
+  };
 
   const handleModalEditOpen = (e) => {
     setEditSelected(e);
@@ -76,12 +78,16 @@ const GlinvergyProvider = ({ children }) => {
     e.preventDefault();
 
     if ([seal, condition, status, dateEntry, timeAdmision].includes(""))
-      return alert("Please fill all the fields");
+      return toast.error("Please fill all the fields");
 
     const newDate = allDates.find((e) => e.seal === objGlinvergy.seal);
-    if (newDate) return alert("This seal already exists");
+
+    if (newDate) {
+      return toast.error("This seal already exists");
+    }
 
     setAllDates([...allDates, objGlinvergy]);
+    toast.success("Seal added successfully");
 
     setAddModal(false);
     setSeal("");
@@ -95,6 +101,8 @@ const GlinvergyProvider = ({ children }) => {
     const newData = allDates.filter((e) => e.seal !== producSelected);
     setAllDates(newData);
     setDeleteModal(false);
+
+    toast.succes("Seal deleted successfully");
   };
 
   const handleSubmitEdit = (e) => {
@@ -117,19 +125,20 @@ const GlinvergyProvider = ({ children }) => {
     found.timeAdmision = obj.timeAdmision;
 
     setEditModal(false);
+    toast.success("Seal edited successfully");
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
 
     if ([veriUser, veriPassword].includes("")) {
-      return alert("Please fill all the fields");
+      return toast.error("Please fill all the fields");
     }
 
     if (veriUser === user && veriPassword === password) {
       setLogin(true);
     } else {
-      alert("Incorrect user or password");
+      toast.error("User or password incorrect");
     }
   };
 

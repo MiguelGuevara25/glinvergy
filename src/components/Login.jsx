@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaLock, FaUser } from "react-icons/fa";
+import { Toaster } from "sonner";
 import useGlinvergy from "../hooks/useGlinvergy";
 
 const Login = () => {
@@ -38,6 +39,7 @@ const Login = () => {
 
   return (
     <div className="h-screen flex justify-center items-center bg-gradient-to-r from-[#FAD961] to-[#F76B1C]">
+      <Toaster richColors position="top-center" />
       <form
         className="flex flex-col bg-[#f76c1c56] justify-around rounded-lg p-10 text-white h-80 shadow-xl relative"
         onSubmit={handleLogin}
@@ -66,7 +68,10 @@ const Login = () => {
           />
 
           {seePassword ? (
-            <FaEye className="absolute right-10 cursor-pointer" onClick={showPassword} />
+            <FaEye
+              className="absolute right-10 cursor-pointer"
+              onClick={showPassword}
+            />
           ) : (
             <FaEyeSlash
               className="absolute right-10 cursor-pointer"

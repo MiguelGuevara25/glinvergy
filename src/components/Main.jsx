@@ -16,6 +16,8 @@ import useGlinvergy from "../hooks/useGlinvergy";
 import ViewModal from "./ViewModal";
 import DataCards from "./DataCards";
 
+import { Toaster } from "sonner";
+
 const Main = () => {
   const { handleModalAddOpen, allDates, handleLogout } = useGlinvergy();
 
@@ -26,6 +28,7 @@ const Main = () => {
 
   return (
     <div className="container mx-auto">
+      <Toaster richColors position="top-center" />
       <h1 className="text-center text-6xl uppercase my-16 font-bold text-white">
         Glinvergy
       </h1>
